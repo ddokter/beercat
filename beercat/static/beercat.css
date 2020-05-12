@@ -1,0 +1,34 @@
+body {
+    __background-image: url("/static/bg.gif");
+    __background-size: 100% auto;
+    __background-repeat: repeat-y;
+}
+
+ul.nav-tabs {
+    margin-bottom: 30px;
+}
+
+nav.navbar {
+    margin-bottom: 20px;
+}
+
+blockquote {
+    font-style: italic;
+    font-size: 1rem !important;
+}
+
+.list-group-item .btn {
+    opacity: 0.3;
+}
+
+.list-group-item:hover .btn {
+    opacity: 1.0;
+}
+
+.icon {
+    color: #707070;
+}
+
+.status {
+    font-size: 70%;
+}

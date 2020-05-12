@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{% if obj.closed %}
+<span class="badge badge-pill badge-warning">
+  {% trans 'closed' %}
+</span>
+{% endif %}

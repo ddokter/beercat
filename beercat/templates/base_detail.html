@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load i18n beercat_tags %}
+
+{% block bodyclass %}ct detail {{ object.ctype }}{% endblock %}
+
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="{% url 'home' %}">{% trans "Home" %}</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="{{ view.listing_url }}">
+        {% blocktrans with label=view.listing_label %}{{label}}{% endblocktrans %}
+      </a>
+    </li>
+    <li class="breadcrumb-item active">{{ object }}</li>    
+  </ol>
+</nav>
+{% endblock %}
+
+{% block actions %}
+{% if user|push:object|has_obj_perm:'change' %}
+{% edit_action object %}
+{% endif %}
+{% if user|push:object|has_obj_perm:'delete' %}
+{% delete_action object %}
+{% endif %}
+{% block extra_actions %}
+{% endblock %}
+{% endblock %}
+
+{% block title %}
+{% icon object %}
+{{ object }}
+{% endblock title %}
+
+{% block status %}
+{% status object %}
+{% endblock status %}
+
+{% block content %}
+<dl>
+  {% for prop in view.properties %}
+  <dt>{{ prop.0 }}</dt><dd>{{ prop.1 }}</dd>
+  {% endfor %}
+</dl>
+
+{% block after_content %}
+{% endblock %}
+
+{% endblock content %}

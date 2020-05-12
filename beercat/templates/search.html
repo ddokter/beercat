@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load i18n beercat_tags %}
+
+
+{% block title %}
+{% trans 'Search results' %}
+{% endblock %}
+
+
+{% block content %}
+{% listing '' view.list_items %}
+{% endblock content %}

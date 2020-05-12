@@ -1,0 +1,46 @@
+{% extends 'base_detail.html' %}
+
+{% load i18n beercat_tags %}
+
+{% block extra_actions %}
+{% merge_action object %}
+{% endblock %}
+
+{% block content %}
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active"
+       id="details-tab" data-toggle="tab"
+       role="tab" aria-controls="details" aria-selected="true"
+       href="#details">{% trans 'Details' %}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+       id="beer-tab" data-toggle="tab"
+       role="tab" aria-controls="beer" aria-selected="false"
+       href="#beer">{% trans 'Beer' %}</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link"
+         id="people-tab" data-toggle="tab"
+         role="tab" aria-controls="people" aria-selected="false"
+         href="#people">{% trans 'People' %}</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="tab-content">
+  <div class="tab-pane fade show active" id="details"
+       role="tabpanel" aria-labelledby="details-tab">
+    {% sublisting 'History' object.list_events 'breweryevent' %}
+  </div>
+  <div class="tab-pane fade" id="beer"
+       role="tabpanel" aria-labelledby="beer-tab">
+    {% sublisting 'Beer' object.list_styles 'brewerystyle' %}
+  </div>  
+  <div class="tab-pane fade" id="people"
+       role="tabpanel" aria-labelledby="people-tab">
+    {% sublisting 'People' object.list_people 'role' %}
+  </div>
+</div>
+{% endblock %}

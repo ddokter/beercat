@@ -1,2 +1,2 @@
-# beercat
-Research database for brewery history
+# Beer Cat
+
