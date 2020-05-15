@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from .datefield import FlexDateField
+from .mdfield import MDField
 
 
 ROLE_VOCAB = [
@@ -34,7 +35,7 @@ class Role(models.Model):
     from_date = FlexDateField()
     to_date = FlexDateField()
 
-    details = models.TextField(_("Details"), null=True, blank=True)
+    details = MDField(_("Details"), null=True, blank=True)
     status = models.IntegerField(choices=STATUS_VOCAB, default=1)
 
     @property
@@ -55,6 +56,20 @@ class Role(models.Model):
     def detail_proxy(self):
 
         return self.person
+
+    def story(self):
+
+        _story = "%s is %s" % (self.person.short(), self.name_label)
+
+        if self.from_date:
+            _story += " vanaf %s" % self.from_date
+
+        if self.to_date:
+            _story += " tot %s" % self.to_date
+
+        _story += " %s" % self.details
+
+        return _story
 
     class Meta:
 

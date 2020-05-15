@@ -32,3 +32,14 @@ blockquote {
 .status {
     font-size: 70%;
 }
+
+h1 {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.side .listing {
+    margin-bottom: 20px;
+}

@@ -17,6 +17,18 @@ class Location(models.Model):
 
         return "%s (%s)" % (self.name, self.province.abbr)
 
+    def list_persons(self):
+
+        """ Show persons that are related to this location """
+
+        # TODO: show nature of relation
+
+        return [event.person for event in self.personevent_set.all()]
+
+    def list_breweries(self):
+
+        return self.brewery_set.all()
+
     class Meta:
 
         app_label = "beercat"

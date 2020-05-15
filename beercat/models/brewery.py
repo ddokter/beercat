@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from ..utils import normalize_name
 from .location import Location
 from .datefield import FlexDateField
 from .event import BreweryMerge
@@ -16,7 +17,7 @@ class Brewery(models.Model):
 
     def __str__(self):
 
-        return "%s - %s" % (self.name, self.location)
+        return "%s - %s" % (normalize_name(self.name), self.location)
 
     def list_styles(self):
 

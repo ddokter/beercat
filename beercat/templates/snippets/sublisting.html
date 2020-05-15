@@ -10,11 +10,13 @@
     {% endif %}
   </h2>
 
+  {% if items|length > 10 %}
   <form class="input-group listingfilter" role="form">
     <input type="text" class="form-control input-sm"
            placeholder="{% trans 'Filter' %}"
            name="filter">
   </form>
+  {% endif %}
 
   <ul class="list-group">
     {% for item in items %}

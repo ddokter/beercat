@@ -77,10 +77,10 @@ class PersonDetailView(DetailView):
             _date = ""
 
             if obj.from_date:
-                _date = "v.a. %s" % obj.from_date.year
+                _date += "v.a. %s" % obj.from_date.year
 
             if obj.to_date:
-                _date = "tot %s" % obj.to_date.year
+                _date += " tot %s" % obj.to_date.year
 
             _dict.update({'date': _date})
 

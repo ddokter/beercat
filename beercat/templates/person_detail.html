@@ -4,14 +4,21 @@
 
 {% block content %}
 
-<h2>{% trans 'History' %}</h2>
+<div class="row">
 
-{{ person.story }}
+  <div class="col-8">
+    <h2>{% trans 'History' %}</h2>
 
-{% sublisting 'Roles' object.list_roles 'role' %}
+    {{ person.story }}
 
-{% sublisting 'Relations' object.list_relations 'relation' 'subj' %}
+  </div>
 
-{% sublisting 'Beers' object.list_beers '' %}
+  <div class="col side">
+    {% sublisting 'Roles' object.list_roles 'role' %}
+    {% sublisting 'Relations' object.list_relations 'relation' 'subj' %}
+    {% sublisting 'Beers' object.list_beers '' %}
+  </div>
+
+</div>
 
 {% endblock %}

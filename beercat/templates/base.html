@@ -22,7 +22,7 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
   <a class="navbar-brand" href="{% url 'home' %}">
     <span class="fas fa-beer" />
-    Unicorn
+    BeerCat
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -59,19 +59,6 @@
       </li>
     </ul>
 
-    <!--li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="toolMenu"
-           role="button" data-toggle="dropdown" aria-haspopup="true"
-           aria-expanded="false">
-          {% trans 'Tools' %}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="toolMenu">
-          <a class="dropdown-item" href="{-% url 'odd_conversions' %-}">
-            {% trans 'Find odd conversions' %}
-          </a>
-        </div>
-      </li-->
-      
     <form class="navbar-form navbar-right"
           action="{% url 'search' %}"
           method="GET"

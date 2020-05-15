@@ -162,7 +162,7 @@ def status_class(status):
 def byline(obj):
 
     try:
-        return render_to_string("snippets/%s_byline.html" %
+        return render_to_string("snippets/byline/%s.html" %
                                 get_model_name(obj),
                                 {'obj': obj})
     except:

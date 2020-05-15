@@ -10,6 +10,7 @@ requires = [
     'Django',
     'django-polymorphic',
     'django-bootstrap4',
+    'markdown'
     ]
 
 setup(name='beercat',

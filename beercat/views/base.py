@@ -131,6 +131,13 @@ class InlineActionMixin:
         form = super().get_form(form_class=form_class)
 
         try:
+            # Hide the widget for the parent field.
+            #
+            form.fields[self.fk_field].widget = forms.widgets.HiddenInput()
+        except:
+            pass
+
+        try:
             field_defs = self.parent.child_fk_qs.get(self.ctype)
 
             for field in field_defs.keys():
@@ -191,6 +198,15 @@ class CreateView(GenericMixin, BaseCreateView, CTypeMixin):
             action_url = reverse(self.view_type, kwargs={'model': self.ctype})
 
         return action_url
+
+    @property
+    def success_url(self):
+
+        try:
+            return reverse('view', kwargs={'model': self.ctype,
+                                           'pk': self.object.id})
+        except:
+            return super().success_url
 
 
 class UpdateView(GenericMixin, BaseUpdateView, CTypeMixin):

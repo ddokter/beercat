@@ -63,6 +63,14 @@ class FlexDate:
 
         return str(self).__len__()
 
+    def __lt__(self, other):
+
+        return self.db_val() < other.db_val()
+
+    def xx__eq__(self, other):
+
+        return self.db_val() == other.db_val()
+
 
 class FlexDateField(models.CharField):
 

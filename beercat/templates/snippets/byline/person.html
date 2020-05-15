@@ -1,0 +1,21 @@
+{% extends 'snippets/byline/byline.html' %}
+
+{% block content %}
+
+{{ obj.name }} - 
+
+{% if obj.gender == 0 %}
+<i class="icon fas fa-mars"></i>
+{% else %}
+<i class="icon fas fa-venus"></i>
+{% endif %}
+ - 
+{% if obj.date_of_birth %}
+<i class="icon fas fa-baby-carriage"></i> {{ obj.date_of_birth }}
+{% endif %}
+ - 
+{% if obj.date_of_death %}
+<i class="icon fas fa-skull-crossbones"></i> {{ obj.date_of_death }}
+{% endif %}
+
+{% endblock %}

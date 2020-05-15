@@ -3,7 +3,10 @@
 {% load i18n bootstrap4 %}
 
 {% block title %}
-<h1>{% blocktrans with label=view.ct_label %}Add {{label}}{% endblocktrans %} </h1>
+{% if view.parent %}
+{{ view.parent }}:
+{% endif %}
+{% blocktrans with label=view.ct_label %}Add {{label}}{% endblocktrans %}
 {% endblock %}
 
 {% block content %}

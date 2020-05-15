@@ -1,0 +1,11 @@
+{% extends 'base_detail.html' %}
+
+{% load i18n beercat_tags %}
+
+{% block content %}
+
+{% sublisting 'Breweries' object.list_breweries '' %}
+
+{% sublisting 'People' object.list_persons '' %}
+
+{% endblock %}
