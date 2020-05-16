@@ -3,7 +3,9 @@
 {% load i18n beercat_tags %}
 
 {% block extra_actions %}
+{% if user|push:object|has_obj_perm:'change' %}
 {% merge_action object %}
+{% endif %}
 {% endblock %}
 
 {% block content %}

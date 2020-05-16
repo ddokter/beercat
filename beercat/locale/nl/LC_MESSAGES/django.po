@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 10:16+0000\n"
-"PO-Revision-Date: 2020-05-15 12:18+0200\n"
+"POT-Creation-Date: 2020-05-16 12:53+0000\n"
+"PO-Revision-Date: 2020-05-16 14:56+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Name"
 msgstr "Naam"
 
-#: models/brewery.py:15 models/event.py:73 models/event.py:112
+#: models/brewery.py:15 models/event.py:74 models/event.py:113
 #: models/location.py:14 models/person.py:23 models/province.py:13
 #: models/style.py:13
 msgid "Description"
@@ -32,6 +32,46 @@ msgstr "Beschrijving"
 #: models/brewery.py:53 templates/base.html:37
 msgid "Breweries"
 msgstr "Brouwerijen"
+
+#: models/event.py:9
+msgid "Birth"
+msgstr "Geboorte"
+
+#: models/event.py:10
+msgid "Death"
+msgstr "Overlijden"
+
+#: models/event.py:11 models/event.py:29
+msgid "Move"
+msgstr "Verhuizing"
+
+#: models/event.py:12
+msgid "End brewing career"
+msgstr "Beeindigen brouwcarriere"
+
+#: models/event.py:26
+msgid "Start"
+msgstr "Begin"
+
+#: models/event.py:27
+msgid "End"
+msgstr "Eind"
+
+#: models/event.py:28
+msgid "Auction"
+msgstr "Veiling"
+
+#: models/event.py:30
+msgid "Remodel"
+msgstr "Verbouwing"
+
+#: models/event.py:31
+msgid "Sold"
+msgstr "Verkocht"
+
+#: models/event.py:32
+msgid "Merge"
+msgstr "Samenvoeging"
 
 #: models/location.py:11 models/province.py:11 models/style.py:11
 msgid "Synonyms"
@@ -45,7 +85,7 @@ msgstr "Achternaam"
 msgid "Abbrevation"
 msgstr "Afkorting"
 
-#: models/relation.py:32 models/role.py:38 templates/brewery_detail.html:16
+#: models/relation.py:32 models/role.py:38 templates/brewery_detail.html:18
 #: templates/snippets/tabs/brewery.html:6
 #: templates/snippets/tabs/brewery.html:9
 msgid "Details"
@@ -67,15 +107,15 @@ msgstr "Personen"
 msgid "Styles"
 msgstr "Stijlen"
 
-#: templates/base.html:66
-msgid "Tools"
-msgstr "Gereedschappen"
+#: templates/base.html:99
+msgid "Logout"
+msgstr "Uitloggen"
 
-#: templates/base.html:70
-msgid "Find odd conversions"
-msgstr ""
+#: templates/base.html:106 templates/login.html:14
+msgid "Login"
+msgstr "Inloggen"
 
-#: templates/base.html:83
+#: templates/base.html:119
 msgid "search terms"
 msgstr "zoektermen"
 
@@ -90,15 +130,15 @@ msgstr ""
 
 #: templates/base_create.html:57
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: templates/base_create.html:60 templates/confirm_delete.html:22
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: templates/base_detail.html:11 templates/base_listing.html:15
 msgid "Home"
-msgstr ""
+msgstr "Index"
 
 #: templates/base_detail.html:15 templates/base_listing.html:23
 #, python-format
@@ -108,58 +148,62 @@ msgstr ""
 #: templates/base_update.html:7
 #, python-format
 msgid "Edit %(label)s"
-msgstr ""
+msgstr "Bewerk %(label)s"
 
-#: templates/brewery_detail.html:22
+#: templates/brewery_detail.html:24
 msgid "Beer"
-msgstr ""
+msgstr "Bier"
 
 #: templates/confirm_delete.html:7
 #, python-format
 msgid ""
 "Do you really want to delete %(object)s?\n"
 "  "
-msgstr ""
+msgstr "Wil je echt %(object)s verwijderen?"
 
 #: templates/confirm_delete.html:19
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
+
+#: templates/login.html:18
+msgid "Forgot your password?"
+msgstr "Wachtwoord vergeten?"
 
 #: templates/person_detail.html:10
 msgid "History"
-msgstr ""
+msgstr "Geschiedenis"
 
 #: templates/search.html:7
 msgid "Search results"
-msgstr ""
+msgstr "Zoekresultaten"
 
 #: templates/snippets/add_action.html:6
 msgid "Add"
-msgstr ""
+msgstr "Toevoegen"
 
 #: templates/snippets/delete_action.html:5
 msgid "Delete"
-msgstr ""
+msgstr "Verwijderen"
 
 #: templates/snippets/edit_action.html:5
 msgid "Edit"
-msgstr ""
+msgstr "Bewerken"
 
 #: templates/snippets/listing.html:8 templates/snippets/sublisting.html:16
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: templates/snippets/merge_action.html:6
 msgid "Merge event"
-msgstr ""
+msgstr "Samenvoeging"
 
 #: templates/snippets/status/brewery.html:5
 msgid "closed"
-msgstr ""
+msgstr "gesloten"
 
 #: templates/snippets/status/role.html:5
 msgid "assumption"
-msgstr ""
+msgstr "Aanname"
 
 #: templates/snippets/tabs/brewery.html:16
 #: templates/snippets/tabs/brewery.html:20
@@ -173,4 +217,7 @@ msgstr ""
 
 #: views/person.py:24
 msgid "Events"
-msgstr ""
+msgstr "Gebeurtenissen"
+
+#~ msgid "Tools"
+#~ msgstr "Gereedschappen"
