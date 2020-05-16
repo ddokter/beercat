@@ -14,6 +14,8 @@ urlpatterns = [
 
     path('auth/', include('django.contrib.auth.urls')),
 
+    path('i18n/', include('django.conf.urls.i18n')),
+
     path('', Home.as_view(), name="home"),
 
     path('search', Search.as_view(), name="search"),

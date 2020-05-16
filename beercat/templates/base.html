@@ -46,7 +46,7 @@
         <a class="nav-link" href="{% url 'list' model='province' %}">
           {% trans 'Province' %}
         </a>
-      </li>      
+      </li>
       <li class="nav-item {% if view.view_name.0 == 'person' %}active{% endif %}">
         <a class="nav-link" href="{% url 'list' model='person' %}">
           {% trans 'People' %}
@@ -56,6 +56,33 @@
         <a class="nav-link" href="{% url 'list' model='style' %}">
           {% trans 'Styles' %}
         </a>
+      </li>
+
+      <!-- language switch -->
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_language_info for LANGUAGE_CODE as lang %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+      <li class="dropdown nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="langSwitch"
+           role="button" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">        
+          {{ lang.name_local }}
+          <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="langSwitch">
+          {% for language in languages %}
+          <a class="dropdown-item lang_choice" href="#"
+             aria-lang="{{ language }}">
+            {{ language.name_local }}
+          </a>
+          {% endfor %}
+        </div>
+        <form id="lang_switch"
+              action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="language" value=""/>
+        </form>
       </li>
     </ul>
 
@@ -73,7 +100,7 @@
             <i class="fas fa-search"></i>
           </button>
         </div>
-      </div>      
+      </div>
     </form>
   </div>
 </nav>
@@ -83,6 +110,7 @@
 
   {% block breadcrumbs %}{% endblock %}
 
+  {% block header %}
   <h1>
     {% block title %}{% endblock %}
     <div role="toolbar" class="d-inline">
@@ -92,6 +120,7 @@
       {% block status %}{% endblock %}
     </div>
   </h1>
+  {% endblock %}
 
   {% block content %}{% endblock %}
 </div>

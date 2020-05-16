@@ -1,7 +1,12 @@
+import os
+from markdown import markdown
 from django.template import Library
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.urls.exceptions import NoReverseMatch
+from django.utils.safestring import mark_safe
+from django.conf import settings
+from django.utils.translation import get_language
 from beercat.utils import get_model_name
 
 
@@ -167,6 +172,28 @@ def byline(obj):
                                 {'obj': obj})
     except:
         return ""
+
+
+@register.simple_tag
+def doc(text_id):
+
+    """Return the md processed version of the given document id for the
+    current language code, or the default if it can't be found
+
+    """
+
+    lcode = get_language()
+
+    path = os.path.dirname(__file__)
+
+    try:
+        text = open(os.path.join(path, "../docs/%s" % lcode,
+                                 "%s.md" % text_id)).read()
+    except:
+        text = open(os.path.join(path, "../docs",
+                                 "%s.md" % text_id)).read()
+
+    return mark_safe(markdown(text, extensions=['footnotes']))
 
 
 @register.filter

@@ -88,4 +88,9 @@ $(document).ready(function() {
 
     return false;
   });
+
+  $(".lang_choice").click(function(e) {
+    $("#lang_switch input[name=language]").val($(e.target).attr("aria-lang"));
+    $("#lang_switch").submit();
+  });
 });

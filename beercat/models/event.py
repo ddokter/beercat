@@ -6,9 +6,10 @@ from .datefield import FlexDateField
 
 
 PERSON_EVENT_VOCAB = [
-    (1, 'birth'),
-    (2, 'death'),
-    (3, 'move')
+    (1, _('Birth')),
+    (2, _('Death')),
+    (3, _('Move')),
+    (4, _('End brewing career'))
 ]
 
 
@@ -22,13 +23,13 @@ PERSON_EVENT_STORY = {
 }
 
 BREWERY_EVENT_VOCAB = [
-    (1, 'start'),
-    (2, 'end'),
-    (3, 'auction'),
-    (4, 'move'),
-    (5, 'remodel'),
-    (6, 'sold'),
-    (7, 'merge')
+    (1, _('Start')),
+    (2, _('End')),
+    (3, _('Auction')),
+    (4, _('Move')),
+    (5, _('Remodel')),
+    (6, _('Sold')),
+    (7, _('Merge'))
 ]
 
 
