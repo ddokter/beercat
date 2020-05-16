@@ -1,5 +1,6 @@
 from django.urls import path, include
 from .views.home import Home
+from .views.auth import LoginView, LogoutView
 from .views.base import (
     ListingView, CreateView, UpdateView, DeleteView, DetailView,
     InlineCreateView, InlineDeleteView, InlineUpdateView)
@@ -13,6 +14,10 @@ from .views.search import Search
 urlpatterns = [
 
     path('auth/', include('django.contrib.auth.urls')),
+
+    path('login/', LoginView.as_view(), name="login"),
+
+    path('logout/', LogoutView.as_view(), name="logout"),
 
     path('i18n/', include('django.conf.urls.i18n')),
 

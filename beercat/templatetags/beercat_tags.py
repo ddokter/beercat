@@ -231,8 +231,7 @@ def has_obj_perm(user_obj, perm):
 
     user, obj = user_obj
 
-    # return user.has_perm("beercat.%s_%s" % (perm, get_model_name(obj)))
-    return True
+    return user.has_perm("beercat.%s_%s" % (perm, get_model_name(obj)))
 
 
 @register.filter
@@ -240,8 +239,7 @@ def has_model_perm(user_model, perm):
 
     user, model = user_model
 
-    # return user.has_perm("beercat.%s_%s" % (perm, model))
-    return True
+    return user.has_perm("beercat.%s_%s" % (perm, model))
 
 
 @register.inclusion_tag('snippets/merge_action.html')

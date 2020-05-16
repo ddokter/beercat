@@ -86,22 +86,46 @@
       </li>
     </ul>
 
-    <form class="navbar-form navbar-right"
-          action="{% url 'search' %}"
-          method="GET"
-          role="search">
-      {% csrf_token %}
-      <div class="input-group search">
-        <input type="text" class="form-control"
-               name="q"
-               placeholder="{% trans 'search terms' %}">
-        <div class="input-group-append">
-          <button type="submit" class="btn btn-light">
-            <i class="fas fa-search"></i>
-          </button>
+    <ul class="navbar-nav navbar-right">
+      {% if request.user.is_authenticated %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"
+           data-toggle="dropdown">
+          {{ request.user }}
+          <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'logout' %}">
+            {% trans 'Logout' %}
+          </a>
         </div>
-      </div>
-    </form>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">
+          {% trans 'Login' %}
+        </a>
+      </li>
+      {% endif %}
+      <li class="nav-item">
+        <form class="navbar-form"
+              action="{% url 'search' %}"
+              method="GET"
+              role="search">
+          {% csrf_token %}
+          <div class="input-group search">
+            <input type="text" class="form-control"
+                   name="q"
+                   placeholder="{% trans 'search terms' %}">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-light">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </li>
+    </ul>
   </div>
 </nav>
 
