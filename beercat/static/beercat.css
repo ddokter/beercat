@@ -4,6 +4,10 @@ body {
     __background-repeat: repeat-y;
 }
 
+.navbar {
+    background-color: #002d04;
+}
+
 ul.nav-tabs {
     margin-bottom: 30px;
 }

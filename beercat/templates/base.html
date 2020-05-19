@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block bootstrap4_content %}
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+<nav class="navbar navbar-dark navbar-expand-lg">
   <a class="navbar-brand" href="{% url 'home' %}">
     <span class="fas fa-beer" />
     BeerCat
@@ -57,7 +57,9 @@
           {% trans 'Styles' %}
         </a>
       </li>
+    </ul>
 
+    <ul class="navbar-nav navbar-right">
       <!-- language switch -->
       {% get_current_language as LANGUAGE_CODE %}
       {% get_language_info for LANGUAGE_CODE as lang %}
@@ -83,10 +85,7 @@
           {% csrf_token %}
           <input type="hidden" name="language" value=""/>
         </form>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav navbar-right">
+      </li>      
       {% if request.user.is_authenticated %}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle"

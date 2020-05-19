@@ -29,7 +29,8 @@ BREWERY_EVENT_VOCAB = [
     (4, _('Move')),
     (5, _('Remodel')),
     (6, _('Sold')),
-    (7, _('Merge'))
+    (7, _('Merge')),
+    (8, _('Liquidation'))
 ]
 
 

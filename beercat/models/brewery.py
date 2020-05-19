@@ -4,6 +4,7 @@ from ..utils import normalize_name
 from .location import Location
 from .datefield import FlexDateField
 from .event import BreweryMerge
+from .mdfield import MDField
 
 
 class Brewery(models.Model):
@@ -59,6 +60,7 @@ class BreweryStyle(models.Model):
     style = models.ForeignKey('Style', on_delete=models.CASCADE)
     started = FlexDateField()
     stopped = FlexDateField()
+    details = MDField(_("Details"), null=True, blank=True)
 
     def __str__(self):
 

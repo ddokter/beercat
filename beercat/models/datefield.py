@@ -71,6 +71,11 @@ class FlexDate:
 
         return self.db_val() == other.db_val()
 
+    @property
+    def marker(self):
+
+        return self.mod
+
 
 class FlexDateField(models.CharField):
 

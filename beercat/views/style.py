@@ -4,6 +4,15 @@ from ..models.style import Style
 from .base import DetailView
 
 
+# TODO: translatable
+MARKERS = {
+    '=': '',
+    '~': 'ca.',
+    '<': 'voor',
+    '>': 'na'
+}
+
+
 class StyleDetailView(DetailView):
 
     model = Style
@@ -19,10 +28,12 @@ class StyleDetailView(DetailView):
             _date = ""
 
             if obj.started:
-                _date += " v.a. ca. %s" % obj.started.year
+                _date += " v.a. %s %s" % (MARKERS.get(obj.started.marker, ''),
+                                          obj.started.year)
 
             if obj.stopped:
-                _date += " tot ca. %s" % obj.stopped.year
+                _date += " tot %s %s" % (MARKERS.get(obj.stopped.marker, ''),
+                                         obj.stopped.year)
 
             _dict['date'] = _date
 
